@@ -20,7 +20,7 @@ class Utils
         username = username.chomp
 
         path = "/home/#{username}/JPM"
-        sources = YAML.load_file('test.yml')
+        sources = YAML.load_file('sources.yml')
 
         if Dir.exists?("#{path}/#{package}")
             puts "ERROR: Ya tienes #{package} en tu directorio de JPM"
