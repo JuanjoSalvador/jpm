@@ -33,5 +33,14 @@ class Utils
                 puts "No se ha encontrado #{package}. Puedes añadirlo con jpm add <paquete>"
             end
         end
-    end 
+    end
+
+    def list
+        sources = YAML.load_file('sources.yml')
+        sources = sources.sort
+        puts "Paquetes disponibles:"
+        sources.each do |s|
+            puts "* " + s[0]
+        end
+    end
 end

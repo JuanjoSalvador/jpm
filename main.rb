@@ -10,7 +10,7 @@ case ARGV[0]
         u.download(ARGV[1])
     
     when "list"
-        puts "List!"
+        u.list
 
     when "update"
         puts "Update!"
