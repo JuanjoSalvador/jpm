@@ -39,6 +39,7 @@ class Utils
         sources = YAML.load_file('sources.yml')
         sources = sources.sort
         puts "Paquetes disponibles:"
+        puts ""
         sources.each do |s|
             puts "* " + s[0]
         end
