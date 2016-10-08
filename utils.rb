@@ -25,9 +25,13 @@ class Utils
         if Dir.exists?("#{path}/#{package}")
             puts "ERROR: Ya tienes #{package} en tu directorio de JPM"
         else
-            puts "Descargando..."
-            Git.clone(sources[package], package, :path => path)
-            puts "Terminado."
+            if sources.include? package
+                puts "Descargando..."
+                Git.clone(sources[package], package, :path => path)
+                puts "Terminado."
+            else
+                puts "No se ha encontrado #{package}. Puedes añadirlo con jpm add <paquete>"
+            end
         end
     end 
 end
