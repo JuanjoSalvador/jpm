@@ -1,20 +1,23 @@
-#!/usr/bin/env ruby
-
 require './utils'
+require './help'
 
-u = Utils.new
+utils = Utils.new
+help  = Help.new
 
 case ARGV[0]
     when "get"
-        u.init
-        u.download(ARGV[1])
+        utils.init()
+        utils.download(ARGV[1])
     
     when "list"
-        u.list
+        utils.list()
 
     when "update"
-        puts "Update!"
+        utils.update()
+
+    when "help"
+        help.info()
 
     else
-        puts "¿Necesitas ayuda?"
+        puts "Prueba con el comando help para obtener ayuda"
 end

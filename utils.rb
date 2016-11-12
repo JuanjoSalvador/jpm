@@ -5,7 +5,7 @@ require 'fileutils'
 
 class Utils
 
-    def init
+    def init()
         username = %x[ #{'whoami'} ]
         username = username.chomp
 
@@ -27,7 +27,7 @@ class Utils
         else
             if sources.include? package
                 puts "Descargando..."
-                Git.clone(sources[package], package, :path => path)
+                Git.clone(sources[package][repo], package, :path => path)
                 puts "Terminado."
             else
                 puts "No se ha encontrado #{package}. Puedes añadirlo con jpm add <paquete>"
@@ -35,13 +35,17 @@ class Utils
         end
     end
 
-    def list
+    def list()
         sources = YAML.load_file('sources.yml')
         sources = sources.sort
         puts "Paquetes disponibles:"
         puts ""
         sources.each do |s|
-            puts "* " + s[0]
+            puts "* " + s[0] + ": " + s[1]['desc']
         end
+    end
+
+    def update()
+        puts "No disponible aún"
     end
 end
